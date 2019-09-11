@@ -24,6 +24,9 @@
           <Label
               Grid.Column="1"
               Grid.Row="2"
+              FontSize="24"
+              TextColor="white"
+              HorizontalTextAlignment="Center"
               Text="QUT Cal"
               Style="{DynamicResource SubtitleStyle}"/>
         </Grid>

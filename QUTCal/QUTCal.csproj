@@ -16,4 +16,15 @@
     <PackageReference Include="Syncfusion.Licensing" Version="17.2.0.49" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.2.0.49" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MasterDetailMaster.xaml" />
+    <EmbeddedResource Remove="MasterDetailDetail.xaml" />
+    <EmbeddedResource Remove="MasterDetail.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MasterDetailMenuItem.cs" />
+    <Compile Remove="MasterDetailDetail.xaml.cs" />
+    <Compile Remove="MasterDetail.xaml.cs" />
+    <Compile Remove="MasterDetailMaster.xaml.cs" />
+  </ItemGroup>
 </Project>

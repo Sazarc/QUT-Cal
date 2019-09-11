@@ -22,6 +22,7 @@
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     WidthRequest="400"/>
+                <Button Text="Go to Add class" />
             </AbsoluteLayout>
         </ScrollView>
     </FlexLayout>
