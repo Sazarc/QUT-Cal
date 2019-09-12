@@ -22,7 +22,10 @@
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     WidthRequest="400"/>
-                <Button Text="Go to Add class" />
+                <Button Text="Go to Add class"
+                        AbsoluteLayout.LayoutBounds="0.5,0,1,0.8"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Clicked="NavigateButton_OnClicked"/>
             </AbsoluteLayout>
         </ScrollView>
     </FlexLayout>
