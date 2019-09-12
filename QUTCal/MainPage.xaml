@@ -10,7 +10,7 @@
         <!-- Place new controls here -->
         <ScrollView>
             <AbsoluteLayout>
-                <Label Text="Placeholder for buttons"
+                <Button Text="Placeholder for buttons"
                     AbsoluteLayout.LayoutBounds=".5,1,.5,.1"
                     AbsoluteLayout.LayoutFlags="All"
                     LineBreakMode="WordWrap"  />
