@@ -30,9 +30,10 @@
                 <Entry Placeholder="Eg. shawnhunter12@gmail.com" />
                 <Label FontSize="20" Text="Phone Number" />
                 <Entry Placeholder="Eg. 0433 582 723" />
+
+                <Button FontSize="25" Text="Add+" />
                 
-                
-                
+
             </StackLayout>
         </AbsoluteLayout>
     </ContentPage.Content>
