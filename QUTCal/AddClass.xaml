@@ -22,8 +22,9 @@
                 AbsoluteLayout.LayoutFlags="All">
                     <Label FontSize="20" Text="Class Name: " />
                     <Entry Placeholder="Eg. Accounting 101" />
-                    <Label Text="Class Code: " />
+                    <Label FontSize="20" Text="Class Code: " />
                     <Entry Placeholder="Eg. ABC101" />
+                    <Label FontSize="20" Text="Lecture Date: " />
                     <DatePicker />
             </StackLayout>
 
