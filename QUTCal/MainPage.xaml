@@ -10,22 +10,36 @@
         <!-- Place new controls here -->
         <ScrollView>
             <AbsoluteLayout>
-                <Label Text="I'm bottom center on every device."
+                <Button Text="Placeholder for buttons"
                     AbsoluteLayout.LayoutBounds=".5,1,.5,.1"
                     AbsoluteLayout.LayoutFlags="All"
                     LineBreakMode="WordWrap"  />
-                <Label Text="Welcome to Xamarin.Forms!"
-                    AbsoluteLayout.LayoutBounds=".5,0.05,0.6,.1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    LineBreakMode="WordWrap"  />
+                <BoxView Color="#003B62"
+                    AbsoluteLayout.LayoutBounds="0,0,1,0.15"
+                    AbsoluteLayout.LayoutFlags="All"/>
+                <Label TextColor="white"
+                    HorizontalTextAlignment="Center"
+                    FontSize="30"
+                    Text="QUT Cal"
+                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
+                    AbsoluteLayout.LayoutFlags="All"/>
+                <StackLayout
+                    Margin="30,0"
+                    AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                    AbsoluteLayout.LayoutFlags="All">
+                    <Label FontSize="20" Text="Today" />
+                    
+                </StackLayout>
+                <StackLayout
+                    Margin="30,120"
+                    AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                    AbsoluteLayout.LayoutFlags="All">
+                    <Label FontSize="20" Text="Upcoming" />
+                </StackLayout>
                 <Slider Minimum="0" Maximum="100"
                     HorizontalOptions="Center"
                     VerticalOptions="CenterAndExpand"
                     WidthRequest="400"/>
-                <Button Text="Go to Add class"
-                        AbsoluteLayout.LayoutBounds="0.5,0,1,0.8"
-                        AbsoluteLayout.LayoutFlags="All"
-                        Clicked="NavigateButton_OnClicked"/>
             </AbsoluteLayout>
         </ScrollView>
     </FlexLayout>
