@@ -13,20 +13,24 @@
             <Label TextColor="white"
                    HorizontalTextAlignment="Center"
                    FontSize="30"
-                   Text="QUT Cal"
+                   Text="Add Class"
                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
                    AbsoluteLayout.LayoutFlags="All"/>
 
-            <StackLayout
-                Padding="30"
-                AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                AbsoluteLayout.LayoutFlags="All">
-                    <Label FontSize="20" Text="Class Name: " />
-                    <Entry Placeholder="Eg. Accounting 101" />
-                    <Label FontSize="20" Text="Class Code: " />
-                    <Entry Placeholder="Eg. ABC101" />
-                    <Label FontSize="20" Text="Lecture Date: " />
-                    <DatePicker />
+            <StackLayout Padding="30"
+                         AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Label FontSize="20" Text="Class: " />
+                <Picker Title="Choose a unit" ItemsSource=""/>
+
+                <Label FontSize="20" Text="Weekly lecture: " />
+                <Switch IsToggled="false" />
+
+                <Label FontSize="20" Text="Lecture Date: " />
+                <DatePicker />
+                <Label IsVisible="false" FontSize="20"
+                       Text="Weekly end Date: " />
+                <DatePicker IsVisible="false" />
             </StackLayout>
 
         </AbsoluteLayout>
