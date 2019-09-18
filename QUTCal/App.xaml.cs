@@ -10,7 +10,11 @@ namespace QUTCal
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#003B62"),
+                BarTextColor = Color.White
+            };
         }
 
         protected override void OnStart()

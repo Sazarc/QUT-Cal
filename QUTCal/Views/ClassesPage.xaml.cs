@@ -11,5 +11,10 @@ namespace QUTCal.Views
         {
             InitializeComponent();
         }
+
+        private async void AddItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddClass());
+        }
     }
 }

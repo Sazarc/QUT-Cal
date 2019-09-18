@@ -2,11 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="QUTCal.Views.ClassesPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
-    </ContentPage.ToolbarItems>
-
+    x:Class="QUTCal.Views.AddSubject">
     <ContentPage.Content>
         <AbsoluteLayout>
             <BoxView Color="#003B62"
@@ -16,23 +12,18 @@
             <Label TextColor="white"
                    HorizontalTextAlignment="Center"
                    FontSize="30"
-                   Text="QUT Cal"
+                   Text="New Subject"
                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
                    AbsoluteLayout.LayoutFlags="All"/>
 
-            <StackLayout
-                Padding="30"
-                AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                AbsoluteLayout.LayoutFlags="All">
+            <StackLayout Padding="30"
+                         AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                         AbsoluteLayout.LayoutFlags="All">
+                <Label FontSize="20" Text="Unit Code: " />
+                <Entry Placeholder="Eg. ABC123"/>
 
-                <!--<ListView ItemsSource="">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
-
+                <Label FontSize="20" Text="Unit Description: " />
+                <Entry Placeholder="Eg. Business Management" />
             </StackLayout>
 
         </AbsoluteLayout>

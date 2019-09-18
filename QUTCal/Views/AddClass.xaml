@@ -21,7 +21,7 @@
                          AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                          AbsoluteLayout.LayoutFlags="All">
                 <Label FontSize="20" Text="Class: " />
-                <Picker Title="Choose a unit" ItemsSource=""/>
+                <!--<Picker Title="Choose a unit" ItemsSource=""/>-->
 
                 <Label FontSize="20" Text="Weekly lecture: " />
                 <Switch IsToggled="false" />
