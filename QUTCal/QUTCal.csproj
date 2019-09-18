@@ -28,7 +28,10 @@
     <Compile Remove="MasterDetailMaster.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Contacts Page.xaml">
+    <EmbeddedResource Update="Contacts Add Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Full Contacts Page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -36,5 +39,10 @@
     <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Contacts Add Page.xaml.cs">
+      <DependentUpon>Contacts Add Page.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>
