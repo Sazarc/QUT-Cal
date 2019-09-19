@@ -11,9 +11,9 @@
         <ScrollView>
             <AbsoluteLayout>
                 <Button Text="Placeholder for buttons"
+                        Clicked="NavigateButton_OnClicked"
                     AbsoluteLayout.LayoutBounds=".5,1,.5,.1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    LineBreakMode="WordWrap"  />
+                    AbsoluteLayout.LayoutFlags="All"/>
                 <BoxView Color="#003B62"
                     AbsoluteLayout.LayoutBounds="0,0,1,0.15"
                     AbsoluteLayout.LayoutFlags="All"/>
@@ -35,6 +35,7 @@
                     AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                     AbsoluteLayout.LayoutFlags="All">
                     <Label FontSize="20" Text="Upcoming" />
+                    <Button Text="Go TO Page" Clicked="NavigateButton_OnClicked" />
                 </StackLayout>
                 <Slider Minimum="0" Maximum="100"
                     HorizontalOptions="Center"
