@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+using QUTCal.Views;
+
 namespace QUTCal
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
@@ -17,6 +19,11 @@ namespace QUTCal
         {
             BindingContext = new MainPageViewModel(Navigation);
             InitializeComponent();
+        }
+
+        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ClassesPage());
         }
     }
 }

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QUTCal.Full_Contacts_Page">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <BoxView Color="#003B62"
+             AbsoluteLayout.LayoutBounds="0,0,1,0.15"
+             AbsoluteLayout.LayoutFlags="All"/>
+
+            <Label TextColor="white"
+                   HorizontalTextAlignment="Center"
+                   FontSize="30"
+                   Text="QUT Cal"
+                   AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
+                   AbsoluteLayout.LayoutFlags="All"/>
+
+            <Button Text="BACK"/>
+
+            <StackLayout
+                Padding="30"
+                AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                AbsoluteLayout.LayoutFlags="All">
+                <Label FontSize="30" Text="James Baxter"/>
+                <Label FontSize="20" Text="jamesbaxter@gmail.com"/>
+                <Label FontSize="20" Text="0411 671 932"/>
+                <Label FontSize="30" Text="Reigner Auguicito"/>
+                <Label FontSize="20" Text="reignera@hotmail.com"/>
+                <Label FontSize="20" Text="0412 654 147"/>
+                <Label FontSize="30" Text="PJ Da'Macale"/>
+                <Label FontSize="20" Text="pjdmac@gmailmail.com"/>
+                <Label FontSize="20" Text="0489 345 890"/>
+
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
