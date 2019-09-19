@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+            xmlns:calendar="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QUTCal.CalendarTabbedPage"
+             Title="Calendar" NavigationPage.HasNavigationBar="True">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Day">
+        <schedule:SfSchedule ScheduleView ="DayView">
+        </schedule:SfSchedule>
+    </ContentPage>
+
+    <ContentPage Title="Week">
+        <schedule:SfSchedule ScheduleView ="WeekView">
+        </schedule:SfSchedule>
+    </ContentPage>
+
+    <ContentPage Title="Month">
+        <StackLayout>
+            <calendar:SfCalendar x:Name="calendar"
+                                 SelectedDate="{Binding SelectedDate, Mode=TwoWay}">
+                <calendar:SfCalendar.HeaderView>
+                    <Label Text="{Binding CalendarMonth}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
+                </calendar:SfCalendar.HeaderView>
+            </calendar:SfCalendar>
+
+            <ListView x:Name="remindersList" ItemsSource="{Binding Reminders}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Description}"
+                                  Detail="{Binding UnitCode}"
+                                  TextColor="Black"
+                                  DetailColor="LightGray" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>

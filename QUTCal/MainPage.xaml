@@ -3,27 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QUTCal"
              mc:Ignorable="d"
-             x:Class="QUTCal.MainPage">
+             x:Class="QUTCal.MainPage"
+             Title="MainPage" NavigationPage.HasNavigationBar="True">
 
-    <FlexLayout>
-        <!-- Place new controls here -->
-        <ScrollView>
-            <AbsoluteLayout>
-                <Label Text="I'm bottom center on every device."
-                    AbsoluteLayout.LayoutBounds=".5,1,.5,.1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    LineBreakMode="WordWrap"  />
-                <Label Text="Welcome to Xamarin.Forms!"
-                    AbsoluteLayout.LayoutBounds=".5,0.05,0.6,.1"
-                    AbsoluteLayout.LayoutFlags="All"
-                    LineBreakMode="WordWrap"  />
-                <Slider Minimum="0" Maximum="100"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="400"/>
-            </AbsoluteLayout>
-        </ScrollView>
-    </FlexLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="MainPage" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Goto Tabbed View"
+                    Command="{Binding GotoCalendarViewCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+
 
 </ContentPage>
+
+    
