@@ -1,4 +1,6 @@
-﻿using System;
+using Syncfusion.SfSchedule.XForms.iOS;
+using Syncfusion.SfCalendar.XForms.iOS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,7 +24,9 @@ namespace QUTCal.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+global::Xamarin.Forms.Forms.Init();
+SfScheduleRenderer.Init();
+SfCalendarRenderer.Init();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

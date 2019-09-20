@@ -18,13 +18,21 @@
                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
                    AbsoluteLayout.LayoutFlags="All"/>
 
-            <Button Text="ADD"
-                    HorizontalOptions="Center"/>
+            <Button Text="BACK"/>
 
             <StackLayout
                 Padding="30"
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
+                <Label FontSize="30" Text="James Baxter"/>
+                <Label FontSize="20" Text="jamesbaxter@gmail.com"/>
+                <Label FontSize="20" Text="0411 671 932"/>
+                <Label FontSize="30" Text="Reigner Auguicito"/>
+                <Label FontSize="20" Text="reignera@hotmail.com"/>
+                <Label FontSize="20" Text="0412 654 147"/>
+                <Label FontSize="30" Text="PJ Da'Macale"/>
+                <Label FontSize="20" Text="pjdmac@gmailmail.com"/>
+                <Label FontSize="20" Text="0489 345 890"/>
 
             </StackLayout>
         </AbsoluteLayout>

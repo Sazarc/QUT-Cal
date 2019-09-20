@@ -6,6 +6,17 @@
              mc:Ignorable="d"
              x:Class="QUTCal.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="AppTemplate">
+                <StackLayout>
+                    <ContentPresenter />
+                </StackLayout>
+            </ControlTemplate>
+        </ResourceDictionary>
 
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="Orange"></Setter>
+            <Setter Property="BarTextColor" Value="Blue"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
