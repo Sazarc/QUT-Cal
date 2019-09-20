@@ -2,7 +2,14 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="QUTCal.Views.AddSubject">
+    x:Class="QUTCal.Views.AddSubject"
+    Title="New Subject">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <AbsoluteLayout>
             <BoxView Color="#003B62"
@@ -20,10 +27,10 @@
                          AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                          AbsoluteLayout.LayoutFlags="All">
                 <Label FontSize="20" Text="Unit Code: " />
-                <Entry Placeholder="Eg. ABC123"/>
+                <Entry Text="{Binding Subject.Code}" Placeholder="Eg. ABC123"/>
 
                 <Label FontSize="20" Text="Unit Description: " />
-                <Entry Placeholder="Eg. Business Management" />
+                <Entry Text="{Binding Subject.Text}" Placeholder="Eg. Business Management" />
             </StackLayout>
 
         </AbsoluteLayout>

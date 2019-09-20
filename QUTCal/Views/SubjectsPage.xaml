@@ -2,7 +2,14 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     x:Class="QUTCal.Views.SubjectsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <AbsoluteLayout>
             <BoxView Color="#003B62"
@@ -21,13 +28,33 @@
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
 
-                <!--<ListView ItemsSource="">
+                <ListView x:Name="SubjectListView"
+                ItemsSource="{Binding Subjects}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Code}" 
+                                        d:Text="{Binding .}"
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="16" />
+                                    <Label Text="{Binding Text}" 
+                                        d:Text="Item description"
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="13" />
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
 
             </StackLayout>
 
