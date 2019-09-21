@@ -11,18 +11,6 @@
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <BoxView Color="#003B62"
-             AbsoluteLayout.LayoutBounds="0,0,1,0.15"
-             AbsoluteLayout.LayoutFlags="All"/>
-            
-            <Label TextColor="white"
-                   HorizontalTextAlignment="Center"
-                   FontSize="30"
-                   Text="New Subject"
-                   AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
-
             <StackLayout Padding="30"
                          AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                          AbsoluteLayout.LayoutFlags="All">
@@ -32,7 +20,5 @@
                 <Label FontSize="20" Text="Unit Description: " />
                 <Entry Text="{Binding Subject.Text}" Placeholder="Eg. Business Management" />
             </StackLayout>
-
-        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,11 +12,11 @@
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="17.2.0.51" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.2.0.51" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="17.2.0.49" />
-    <PackageReference Include="Syncfusion.Licensing" Version="17.2.0.49" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.2.0.49" />
+    <PackageReference Include="Syncfusion.Licensing" Version="17.2.0.51" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.2.0.51" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="MasterDetailMaster.xaml" />
@@ -28,6 +28,7 @@
     <Compile Remove="MasterDetailDetail.xaml.cs" />
     <Compile Remove="MasterDetail.xaml.cs" />
     <Compile Remove="MasterDetailMaster.xaml.cs" />
+    <Compile Remove="ViewModels\ShellBaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Contacts Add Page.xaml">

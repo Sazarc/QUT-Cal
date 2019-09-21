@@ -8,18 +8,20 @@ namespace QUTCal.Views
 {
     public partial class SubjectsPage : ContentPage
     {
-        SubjectsViewModel viewModel;
+        SubjectViewModel viewModel;
 
         public SubjectsPage()
         {
-            InitializeComponent();
+            viewModel = new SubjectViewModel();
 
-            BindingContext = viewModel = new SubjectsViewModel();
+            BindingContext = viewModel;
+
+            InitializeComponent();
         }
 
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddSubject());
+            await Navigation.PushAsync(new AddSubject());
         }
     }
 }

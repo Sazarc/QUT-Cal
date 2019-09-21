@@ -26,12 +26,12 @@ namespace QUTCal.Views
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddItem", Subject);
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }
