@@ -16,6 +16,7 @@
         </ResourceDictionary>
 
         <local:SubjectViewModel x:Key="SubjectViewModel" />
+        <local:ClassViewModel x:Key="ClassViewModel" />
 
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="Orange"></Setter>

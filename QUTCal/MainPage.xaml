@@ -8,50 +8,14 @@
              x:Class="QUTCal.MainPage"
              Title="MainPage" NavigationPage.HasNavigationBar="True">
 
-    <FlexLayout>
-        <!-- Place new controls here -->
-        <ScrollView>
-            <AbsoluteLayout>
-                <Button Text="Placeholder for buttons"
-                        Clicked="NavigateButton_OnClicked"
-                    AbsoluteLayout.LayoutBounds=".5,1,.5,.1"
-                    AbsoluteLayout.LayoutFlags="All"/>
-                <BoxView Color="#003B62"
-                    AbsoluteLayout.LayoutBounds="0,0,1,0.15"
-                    AbsoluteLayout.LayoutFlags="All"/>
-                <Label TextColor="white"
-                    HorizontalTextAlignment="Center"
-                    FontSize="30"
-                    Text="QUT Cal"
-                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
-                    AbsoluteLayout.LayoutFlags="All"/>
-                <StackLayout
-                    Margin="30,0"
-                    AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                    AbsoluteLayout.LayoutFlags="All">
-                    <Label FontSize="20" Text="Today" />
-                    
-                </StackLayout>
-                <StackLayout
-                    Margin="30,120"
-                    AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                    AbsoluteLayout.LayoutFlags="All">
-                    <Label FontSize="20" Text="Upcoming" />
-                    <Button Text="Go TO Page" Clicked="NavigateButton_OnClicked" />
-                </StackLayout>
-                <Slider Minimum="0" Maximum="100"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"
-                    WidthRequest="400"/>
-            </AbsoluteLayout>
-        </ScrollView>
-    </FlexLayout>
-
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Goto Tabbed View"
-                    Command="{Binding GotoCalendarViewCommand}" />
-        </StackLayout>
+                    <StackLayout Margin="100">
+                        <Label FontSize="20" Text="Today" />
+                        <Label FontSize="20" Text="Upcoming" />
+                        <Button Text="Go TO Page" Clicked="NavigateButton_OnClicked" />
+                        <Button Text="Goto Tabbed View"
+                                Command="{Binding GotoCalendarViewCommand}" /> 
+                    </StackLayout>
     </ContentPage.Content>
 
 

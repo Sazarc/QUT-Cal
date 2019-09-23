@@ -2,9 +2,6 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     BindingContext="{StaticResource SubjectViewModel}"
     x:Class="QUTCal.Views.SubjectsPage"
     Title="Subjects">
@@ -20,7 +17,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Code}"
-                                  Detail="{Binding Text}" />
+                                  Detail="{Binding Unit}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
