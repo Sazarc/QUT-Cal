@@ -8,14 +8,8 @@ namespace QUTCal.Views
 {
     public partial class SubjectsPage : ContentPage
     {
-        SubjectViewModel viewModel;
-
         public SubjectsPage()
         {
-            viewModel = new SubjectViewModel();
-
-            BindingContext = viewModel;
-
             InitializeComponent();
         }
 

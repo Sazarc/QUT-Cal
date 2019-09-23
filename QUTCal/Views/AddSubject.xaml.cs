@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using QUTCal.Models;
+using QUTCal.ViewModels;
 
 namespace QUTCal.Views
 {
@@ -25,7 +26,8 @@ namespace QUTCal.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Subject);
+            SubjectViewModel viewModel = (SubjectViewModel) Application.Current.Resources["SubjectViewModel"];
+            viewModel.add(Subject);
             await Navigation.PopAsync();
         }
 

@@ -12,8 +12,12 @@ namespace QUTCal.ViewModels
 {
     public class SubjectViewModel
     {
+        private ObservableCollection<Subject> subjects;
+
         public SubjectViewModel()
         {
+            subjects = new ObservableCollection<Subject>();
+
             LoadSubjects();
 
             MessagingCenter.Subscribe<AddSubject, Subject>(this, "AddSubject", async (obj, subject) =>
@@ -25,17 +29,22 @@ namespace QUTCal.ViewModels
 
         public ObservableCollection<Subject> Subjects
         {
-            get;
-            set;
+            get { return subjects; }
+            set { subjects = value; }
+        }
+
+        public void add(Subject subject)
+        {
+            subjects.Add(subject);
         }
 
         public void LoadSubjects()
         {
-            ObservableCollection<Subject> subjects = new ObservableCollection<Subject>();
+            ObservableCollection<Subject> defSubjects = subjects;
 
-            subjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB303", Text = "Networks" });
-            subjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB432", Text = "Cloud Computing" });
-            subjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "IAB330", Text = "Mobile Application Development" });
+            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB303", Text = "Networks" });
+            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB432", Text = "Cloud Computing" });
+            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "IAB330", Text = "Mobile Application Development" });
 
             Subjects = subjects;
         }
