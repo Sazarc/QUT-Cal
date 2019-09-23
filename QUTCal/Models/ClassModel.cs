@@ -10,6 +10,7 @@ namespace QUTCal.Models
         private string id;
         private string unitCode;
         private string classType;
+        private string location;
         private DateTime dateTime;
 
         public string Id
@@ -74,7 +75,21 @@ namespace QUTCal.Models
             }
         }
 
-        public string _Class
+        public string Location
+        {
+            get { return location; }
+
+            set
+            {
+                if(location != value)
+                {
+                    location = value;
+                    RaisePropertyChanged("Location");
+                }
+            }
+        }
+
+        public string Detail
         {
             get
             {

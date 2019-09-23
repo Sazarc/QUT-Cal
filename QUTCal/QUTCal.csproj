@@ -29,6 +29,8 @@
     <Compile Remove="MasterDetail.xaml.cs" />
     <Compile Remove="MasterDetailMaster.xaml.cs" />
     <Compile Remove="ViewModels\ShellBaseViewModel.cs" />
+    <Compile Remove="Services\SubjectSample.cs" />
+    <Compile Remove="Services\SubjectDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Contacts Add Page.xaml">

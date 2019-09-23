@@ -26,10 +26,12 @@
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
 
-                <ListView ItemsSource="{Binding Classes}">
+                <ListView ItemsSource="{Binding Classes}"
+                          SelectionMode="None"
+                          ItemTapped="Item_Clicked">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding _Class}"
+                        <TextCell Text="{Binding Detail}"
                                   Detail="{Binding DateAndTime}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
