@@ -32,7 +32,7 @@ namespace QUTCal
         }
         private async void SubjectsPage_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ClassesPage());
+            await Navigation.PushAsync(new SubjectsPage());
         }
     }
 
