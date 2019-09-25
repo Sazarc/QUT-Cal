@@ -28,20 +28,19 @@
     <Compile Remove="MasterDetailMaster.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Contacts Add Page.xaml">
+    <EmbeddedResource Update="Views\Contacts Add Page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Full Contacts Page.xaml">
+    <EmbeddedResource Update="Views\Full Contacts Page.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Contacts Add Page.xaml.cs">
+    <Compile Update="Views\Contacts Add Page.xaml.cs">
       <DependentUpon>Contacts Add Page.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
