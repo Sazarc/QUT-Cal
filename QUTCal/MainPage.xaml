@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:QUTCal"
              mc:Ignorable="d"
              x:Class="QUTCal.MainPage"
-             Title="MainPage" NavigationPage.HasNavigationBar="True">
+             Title="QUT Cal" NavigationPage.HasNavigationBar="True">
 
     <ContentPage.Content>
         <StackLayout Margin="100" Padding="0,10,0,0">
