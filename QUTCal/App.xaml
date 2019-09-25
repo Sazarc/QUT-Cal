@@ -3,9 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QUTCal.ViewModels"
              mc:Ignorable="d"
              x:Class="QUTCal.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="AppTemplate">
+                <StackLayout>
+                    <ContentPresenter />
+                </StackLayout>
+            </ControlTemplate>
+        </ResourceDictionary>
 
+        <local:SubjectViewModel x:Key="SubjectViewModel" />
+        <local:ClassViewModel x:Key="ClassViewModel" />
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="Orange"></Setter>
+            <Setter Property="BarTextColor" Value="Blue"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

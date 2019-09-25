@@ -17,12 +17,24 @@ namespace QUTCal
     {
         public MainPage()
         {
+            BindingContext = new MainPageViewModel(Navigation);
             InitializeComponent();
         }
 
-        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        private async void ClassesPage_OnClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ClassesPage());
         }
+
+        private async void ContactsPage_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Full_Contacts_Page());
+        }
+        private async void SubjectsPage_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SubjectsPage());
+        }
     }
+
+   
 }

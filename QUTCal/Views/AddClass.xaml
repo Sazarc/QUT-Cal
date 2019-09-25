@@ -3,7 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="QUTCal.AddClass"
-    Title="Add class">
+    Title="Add class"
+    BindingContext="{StaticResource SubjectViewModel}">
     <ContentPage.Content>
         <AbsoluteLayout>
             <BoxView Color="#003B62"
@@ -21,7 +22,7 @@
                          AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                          AbsoluteLayout.LayoutFlags="All">
                 <Label FontSize="20" Text="Class: " />
-                <!--<Picker Title="Choose a unit" ItemsSource=""/>-->
+                <Picker Title="Choose a unit" ItemsSource="{Binding Subjects}" ItemDisplayBinding="{Binding Unit}"/>
 
                 <Label FontSize="20" Text="Weekly lecture: " />
                 <Switch IsToggled="false" />
