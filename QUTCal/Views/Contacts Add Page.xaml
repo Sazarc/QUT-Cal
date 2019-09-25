@@ -4,7 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="New Contact"
              x:Class="QUTCal.Contacts_Page">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <AbsoluteLayout>
             <BoxView Color="#003B62"
@@ -18,23 +25,18 @@
                    AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
                    AbsoluteLayout.LayoutFlags="All"/>
 
-            <Button Text="BACK"/>
-            
             <StackLayout
                 Padding="30"
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
                 <Label FontSize="20" Text="First Name: " />
-                <Entry Placeholder="Eg. Shawn" />
+                <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. Shawn" />
                 <Label FontSize="20" Text="Surname: " />
-                <Entry Placeholder="Eg. Hunter" />
+                <Entry Text="{Binding Contacts.text}" Placeholder="Eg. Hunter" />
                 <Label FontSize="20" Text="Email Address: " />
-                <Entry Placeholder="Eg. shawnhunter12@gmail.com" />
+                <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. shawnhunter12@gmail.com" />
                 <Label FontSize="20" Text="Phone Number" />
-                <Entry Placeholder="Eg. 0433 582 723" />
-
-                <Button FontSize="25" Text="Add+" />
-                
+                <Entry Text="{Binding Contacts.code}" Placeholder="Eg. 0433 582 723" />
 
             </StackLayout>
         </AbsoluteLayout>
