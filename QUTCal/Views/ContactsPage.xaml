@@ -11,35 +11,22 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <BoxView Color="#003B62"
-             AbsoluteLayout.LayoutBounds="0,0,1,0.15"
-             AbsoluteLayout.LayoutFlags="All"/>
-
-            <Label TextColor="white"
-                   HorizontalTextAlignment="Center"
-                   FontSize="30"
-                   Text="QUT Cal"
-                   AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
-
-            <StackLayout
+        <StackLayout
                 Padding="30"
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
 
-                <ListView ItemsSource="{Binding Contacts}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextCell Text="{Binding Code}"
+            <ListView ItemsSource="{Binding Contacts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Code}"
                                   Detail="{Binding Contact}" />
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
 
-            </StackLayout>
-        </AbsoluteLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

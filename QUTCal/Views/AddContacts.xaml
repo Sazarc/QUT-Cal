@@ -11,34 +11,20 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <BoxView Color="#003B62"
-             AbsoluteLayout.LayoutBounds="0,0,1,0.15"
-             AbsoluteLayout.LayoutFlags="All"/>
-
-            <Label TextColor="white"
-                   HorizontalTextAlignment="Center"
-                   FontSize="30"
-                   Text="QUT Cal"
-                   AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
-
-            <StackLayout
+        <StackLayout
                 Padding="30"
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
-                <Label FontSize="20" Text="First Name: " />
-                <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. Shawn" />
-                <Label FontSize="20" Text="Surname: " />
-                <Entry Text="{Binding Contacts.text}" Placeholder="Eg. Hunter" />
-                <Label FontSize="20" Text="Email Address: " />
-                <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. shawnhunter12@gmail.com" />
-                <Label FontSize="20" Text="Phone Number" />
-                <Entry Text="{Binding Contacts.code}" Placeholder="Eg. 0433 582 723" />
-
-            </StackLayout>
-        </AbsoluteLayout>
+            <Label FontSize="20" Text="First Name: " />
+            <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. Shawn" />
+            <Label FontSize="20" Text="Surname: " />
+            <Entry Text="{Binding Contacts.text}" Placeholder="Eg. Hunter" />
+            <Label FontSize="20" Text="Email Address: " />
+            <Entry Text="{Binding Contacts.Text}" Placeholder="Eg. shawnhunter12@gmail.com" />
+            <Label FontSize="20" Text="Phone Number" />
+            <Entry Text="{Binding Contacts.code}" Placeholder="Eg. 0433 582 723" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

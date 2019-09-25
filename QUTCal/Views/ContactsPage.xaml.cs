@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace QUTCal
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Full_Contacts_Page : ContentPage
+    public partial class ContactsPage : ContentPage
     {
-        public Full_Contacts_Page()
+        public ContactsPage()
         {
             InitializeComponent();
         }
