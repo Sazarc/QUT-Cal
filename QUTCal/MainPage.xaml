@@ -9,13 +9,15 @@
              Title="MainPage" NavigationPage.HasNavigationBar="True">
 
     <ContentPage.Content>
-                    <StackLayout Margin="100">
-                        <Label FontSize="20" Text="Today" />
-                        <Label FontSize="20" Text="Upcoming" />
-                        <Button Text="Go TO Page" Clicked="NavigateButton_OnClicked" />
-                        <Button Text="Goto Tabbed View"
-                                Command="{Binding GotoCalendarViewCommand}" /> 
-                    </StackLayout>
+        <StackLayout Margin="100" Padding="0,10,0,0">
+            <Label FontSize="20" Text="Today" />
+            <Label FontSize="20" Text="Upcoming" />
+            <Button Text="Classes" Clicked="ClassesPage_OnClicked" />
+            <Button Text="Subjects" Clicked="SubjectsPage_OnClicked" />
+            <Button Text="Contacts" Clicked="ContactsPage_OnClicked" />
+            <Button Text="Goto Tabbed View"
+                                    Command="{Binding GotoCalendarViewCommand}" />
+        </StackLayout>
     </ContentPage.Content>
 
 
