@@ -6,7 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Contacts"
-             x:Class="QUTCal.Full_Contacts_Page">
+             x:Class="QUTCal.ContactsPage">
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
