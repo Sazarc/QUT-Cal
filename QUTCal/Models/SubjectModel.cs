@@ -1,17 +1,19 @@
 ﻿using System;
 using QUTCal.Models;
 using System.ComponentModel;
+using SQLite;
 
 namespace QUTCal.Models
 {
 
     public class Subject : INotifyPropertyChanged
     {
-        private string id;
+        [PrimaryKey, AutoIncrement]
+        private int id { get; set; }
         private string code;
         private string text;
 
-        public string Id
+        public int Id
         {
             get
             {

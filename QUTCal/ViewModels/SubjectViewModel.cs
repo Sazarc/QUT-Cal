@@ -10,20 +10,29 @@ using Xamarin.Forms;
 
 using QUTCal.Models;
 using QUTCal.Views;
+using QUTCal.Services;
+using System.IO;
 
 namespace QUTCal.ViewModels
 {
     public class SubjectViewModel : INotifyPropertyChanged
     {
+        private readonly DatabaseService _databaseService;
+
         public SubjectViewModel()
         {
+            _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Subjects = new ObservableCollection<Subject>();
             LoadSubjects();
             DeleteCommand = new Command<Subject>(delete);
         }
 
-        public void add(Subject subject)
+        public ObservableCollection<Subject> Subjects { get; set; }
+
+        public async void add(Subject subject)
         {
+            subject.Id = await _databaseService.SaveSubject(subject);
+
             Subjects.Add(subject);
             OnPropertyChanged("Subjects");
         }
@@ -34,8 +43,11 @@ namespace QUTCal.ViewModels
             OnPropertyChanged("Subjects");
         }
         
-        public void LoadSubjects()
+        public async void LoadSubjects()
         {
+            Subjects = new ObservableCollection<Subject>(await _databaseService.GetSubjectsAsync());
+
+            /*
             ObservableCollection<Subject> defSubjects = Subjects;
 
             defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB303", Text = "Networks" });
@@ -43,6 +55,7 @@ namespace QUTCal.ViewModels
             defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "IAB330", Text = "Mobile Application Development" });
 
             Subjects = defSubjects;
+            */
         }
 
         public ICommand DeleteCommand { protected set; get; }
