@@ -25,7 +25,6 @@ namespace QUTCal.ViewModels
 
         public async void add(Class _class)
         {
-            // _class.Id = Guid.NewGuid().ToString();
             _class.Id = await _databaseService.SaveClass(_class);
 
             Classes.Add(_class);
@@ -37,19 +36,6 @@ namespace QUTCal.ViewModels
         public async void LoadSubjects()
         {
             Classes = new ObservableCollection<Class>(await _databaseService.GetClassesAsync());
-
-            /*
-            ObservableCollection<Class> defClasses = Classes;
-
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "CAB303", ClassType = "Lecture", Location = "S513",
-                DateAndTime = new DateTime(2019, 9, 23, 15, 0, 0) });
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "CAB432", ClassType = "Practical", Location = "G216", 
-                DateAndTime = new DateTime(2019, 9, 25, 15, 0, 0) });
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "IAB330", ClassType = "Tutorial", Location = "F101", 
-                DateAndTime = new DateTime(2019, 10, 3, 15, 0, 0) });
-
-            Classes = defClasses;
-            */
         }
         
         public void delete(Class _class)

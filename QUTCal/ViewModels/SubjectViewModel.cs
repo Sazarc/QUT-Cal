@@ -46,16 +46,6 @@ namespace QUTCal.ViewModels
         public async void LoadSubjects()
         {
             Subjects = new ObservableCollection<Subject>(await _databaseService.GetSubjectsAsync());
-
-            /*
-            ObservableCollection<Subject> defSubjects = Subjects;
-
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB303", Text = "Networks" });
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB432", Text = "Cloud Computing" });
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "IAB330", Text = "Mobile Application Development" });
-
-            Subjects = defSubjects;
-            */
         }
 
         public ICommand DeleteCommand { protected set; get; }
