@@ -8,6 +8,9 @@ namespace QUTCal
     {
         public App()
         {
+            // Register SyncFusion.
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTQ3ODA2QDMxMzcyZTMyMmUzMEk2YTcrRHBHZDZaYW9iWk81ZWU3UE1FbmRqMHBydWtBWVloNUtvWVRHeDQ9");
+
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage())
