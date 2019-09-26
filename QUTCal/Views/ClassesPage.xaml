@@ -6,6 +6,7 @@
     BindingContext="{StaticResource ClassViewModel}"
     Title="Classes">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="RELOAD" Command="{Binding Path=BindingContext.ReloadCommand,Source={x:Reference Name=items}}" />
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
 
