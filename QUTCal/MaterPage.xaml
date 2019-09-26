@@ -2,8 +2,8 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="using:QUTCal"
     xmlns:localViews="clr-namespace:QUTCal.Views"
+    xmlns:qutCal="clr-namespace:QUTCal;assembly=QUTCal"
     x:Class="QUTCal.MasterPage"
     Padding="0,40,0,0"
 	IconImageSource="burgerStack.png"
@@ -11,10 +11,10 @@
     <StackLayout>
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Classes"  TargetType="{x:Type localViews:ClassesPage}" />
-                    <local:MasterPageItem Title="Subjects" TargetType="{x:Type localViews:SubjectsPage}" />
-                    <local:MasterPageItem Title="Contacts"  TargetType="{x:Type localViews:ContactsPage}" />
+                <x:Array Type="{x:Type qutCal:MasterPageItem}">
+                    <qutCal:MasterPageItem Title="Classes"  TargetType="{x:Type localViews:ClassesPage}" />
+                    <qutCal:MasterPageItem Title="Subjects" TargetType="{x:Type localViews:SubjectsPage}" />
+                    <qutCal:MasterPageItem Title="Contacts"  TargetType="{x:Type localViews:ContactsPage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
