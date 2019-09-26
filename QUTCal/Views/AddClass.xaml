@@ -3,38 +3,26 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="QUTCal.AddClass"
-    Title="Add class"
-    BindingContext="{StaticResource SubjectViewModel}">
+    Title="Add class">
     <ContentPage.Content>
-        <AbsoluteLayout>
-            <BoxView Color="#003B62"
-             AbsoluteLayout.LayoutBounds="0,0,1,0.15"
-             AbsoluteLayout.LayoutFlags="All"/>
-            
-            <Label TextColor="white"
-                   HorizontalTextAlignment="Center"
-                   FontSize="30"
-                   Text="Add Class"
-                   AbsoluteLayout.LayoutBounds="0.5,0.07,1,0.15"
-                   AbsoluteLayout.LayoutFlags="All"/>
+        <StackLayout Padding="30"
+                     AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
+                     AbsoluteLayout.LayoutFlags="All">
+            <Label FontSize="20" Text="Class: " />
+            <Picker Title="Choose a unit"
+                    BindingContext="{StaticResource SubjectViewModel}"
+                    ItemsSource="{Binding Subjects}"
+                    ItemDisplayBinding="{Binding Unit}"/>
+            <Switch IsToggled="false" />
+            <Label FontSize="20" Text="Lecture Date:" />
+            <DatePicker /><TimePicker />
 
-            <StackLayout Padding="30"
-                         AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                         AbsoluteLayout.LayoutFlags="All">
-                <Label FontSize="20" Text="Class: " />
-                <Picker Title="Choose a unit" ItemsSource="{Binding Subjects}" ItemDisplayBinding="{Binding Unit}"/>
-
-                <Label FontSize="20" Text="Weekly lecture: " />
-                <Switch IsToggled="false" />
-
-                <Label FontSize="20" Text="Lecture Date: " />
-                <DatePicker />
-                <Label IsVisible="false" FontSize="20"
-                       Text="Weekly end Date: " />
-                <DatePicker IsVisible="false" />
-            </StackLayout>
-
-        </AbsoluteLayout>
+            <!--Weekly end content-->
+            <Label IsVisible="false" FontSize="20" Text="Weekly class: " />
+            <Label IsVisible="false" FontSize="20"
+                   Text="Weekly end Date: " />
+            <DatePicker IsVisible="false" /> <TimePicker IsVisible="false" />
+        </StackLayout>
         
     </ContentPage.Content>
 </ContentPage>
