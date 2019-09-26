@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar" Version="17.2.0.51" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.2.0.51" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.815419" />
@@ -35,7 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="MaterPage.xaml.cs">
