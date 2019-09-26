@@ -12,8 +12,6 @@ namespace QUTCal.Models
         private string classType;
         private string location;
         private DateTime dateAndTime;
-        private DateTime date;
-        private TimeSpan time;
 
         public string Id
         {
