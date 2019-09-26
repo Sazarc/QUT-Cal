@@ -13,11 +13,18 @@
         <StackLayout Padding="30">
             <ListView ItemsSource="{Binding Classes}"
                       SelectionMode="None"
-                      ItemTapped="Item_Clicked">
+                      ItemTapped="Item_Clicked"
+                      x:Name="items">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Detail}"
-                                  Detail="{Binding DateAndTime}" />
+                                  Detail="{Binding DateAndTime}">
+                            <TextCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </TextCell.ContextActions>
+                        </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

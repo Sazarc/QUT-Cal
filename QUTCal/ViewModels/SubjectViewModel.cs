@@ -18,11 +18,8 @@ namespace QUTCal.ViewModels
         public SubjectViewModel()
         {
             Subjects = new ObservableCollection<Subject>();
-            Debug.WriteLine("Subjects created");
             LoadSubjects();
-            Debug.WriteLine("Subjects loaded");
             DeleteCommand = new Command<Subject>(delete);
-            Debug.WriteLine("Subject command set");
         }
 
         public void add(Subject subject)

@@ -1,28 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using QUTCal.Models;
 using QUTCal.Views;
+using Xamarin.Forms;
 
 namespace QUTCal.ViewModels
 {
-    public class ClassViewModel
+    public class ClassViewModel : INotifyPropertyChanged
     {
         public ClassViewModel()
         {
             Classes = new ObservableCollection<Class>();
-
             LoadSubjects();
+            DeleteCommand = new Command<Class>(delete);
         }
 
         public ObservableCollection<Class> Classes { get; set; }
 
         public void add(Class _class)
         {
-            _class.Id = Guid.NewGuid().ToString();
-
             Classes.Add(_class);
+            OnPropertyChanged("Classes");
         }
+        
+        public ICommand DeleteCommand { protected set; get; }
 
         public void LoadSubjects()
         {
@@ -37,5 +42,36 @@ namespace QUTCal.ViewModels
 
             Classes = defClasses;
         }
+        
+        public void delete(Class _class)
+        {
+            Classes.Remove(_class);
+            OnPropertyChanged("Classes");
+        }
+        
+        protected bool SetProperty<T>(ref T backingStore, T value,
+            [CallerMemberName]string propertyName = "",
+            Action onChanged = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingStore, value))
+                return false;
+
+            backingStore = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        #region INotifyPropertyChanged
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        #endregion
     }
 }
