@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -31,26 +31,11 @@
     <Compile Remove="ViewModels\ShellBaseViewModel.cs" />
     <Compile Remove="Services\SubjectSample.cs" />
     <Compile Remove="Services\SubjectDataStore.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Views\AddContacts.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ContactsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
+    <Compile Remove="Views\AddContacts.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Views\AddContacts.xaml.cs">
-      <DependentUpon>AddContacts.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\ContactsPage.xaml.cs">
-      <DependentUpon>ContactsPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

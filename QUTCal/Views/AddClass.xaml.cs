@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using QUTCal.Models;
 using QUTCal.ViewModels;
 
-namespace QUTCal
+namespace QUTCal.Views
 {
     public partial class AddClass : ContentPage
     {
