@@ -4,21 +4,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="QUTCal.Views.AddClass"
     Title="Add class">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="CreateClass_OnClick" />
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout Padding="30"
                      AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                      AbsoluteLayout.LayoutFlags="All">
             <Label FontSize="20" Text="Class: " />
             <Picker Title="Choose a unit"
-                    BindingContext="{StaticResource SubjectViewModel}"
-                    ItemsSource="{Binding Subjects}"
-                    ItemDisplayBinding="{Binding Unit}"/>
-            <Switch IsToggled="false" />
-            <Label FontSize="20" Text="Lecture Date:" />
-            <DatePicker /><TimePicker />
+                    
+                    ItemsSource="{Binding Subjects, Source={StaticResource SubjectViewModel}}"
+                    ItemDisplayBinding="{Binding Unit}"
+                    SelectedIndexChanged="Picker_OnSelectedIndexChanged"/>
+            <Label FontSize="20" Text="Type of class:" />
+            <Entry Placeholder="Eg. Lecture or Practical" Text="{Binding Class.ClassType}"/>
+            <Label FontSize="20" Text="Class Date:" />
+            <DatePicker Date="{Binding Class.DateAndTime}" /><TimePicker />
 
             <!--Weekly end content-->
             <Label IsVisible="false" FontSize="20" Text="Weekly class: " />
+            <Switch IsVisible="false" IsToggled="false" />
             <Label IsVisible="false" FontSize="20"
                    Text="Weekly end Date: " />
             <DatePicker IsVisible="false" /> <TimePicker IsVisible="false" />
