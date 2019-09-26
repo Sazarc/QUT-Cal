@@ -9,26 +9,25 @@ namespace QUTCal.Views
 {
     public partial class AddClass : ContentPage
     {
-        private Class Class { get; set; }
+        public Class Class { get; set; }
+        public TimeSpan Time { get; set; }
 
         public AddClass()
         {
             InitializeComponent();
-
-            Class = new Class
-            {
-                UnitCode = "",
-                ClassType = "",
-                Location = "",
-                DateAndTime = new DateTime()
-            };
+            Time = new TimeSpan();
+            Class = new Class();
 
             BindingContext = this;
         }
 
         private async void CreateClass_OnClick(object sender, EventArgs e)
         {
-            Debug.WriteLine(Class.DateAndTime.ToString());
+            Debug.WriteLine(Class.DateAndTime);
+            Class.DateAndTime = Class.DateAndTime.Add(Time);
+            Debug.WriteLine(Class.DateAndTime);
+            ClassViewModel viewModel = (ClassViewModel) Application.Current.Resources["ClassViewModel"];
+            viewModel.add(Class);
             await Navigation.PopAsync();
         }
 

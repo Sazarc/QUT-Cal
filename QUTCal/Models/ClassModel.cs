@@ -11,7 +11,9 @@ namespace QUTCal.Models
         private string unitCode;
         private string classType;
         private string location;
-        private DateTime dateTime;
+        private DateTime dateAndTime;
+        private DateTime date;
+        private TimeSpan time;
 
         public string Id
         {
@@ -60,17 +62,17 @@ namespace QUTCal.Models
                 }
             }
         }
-
+        
         public DateTime DateAndTime
         {
-            get { return dateTime; }
+            get { return dateAndTime; }
 
             set
             {
-                if (dateTime != value)
+                if (dateAndTime != value)
                 {
-                    dateTime = value;
-                    RaisePropertyChanged("DateAndTime");
+                    dateAndTime = value;
+                    RaisePropertyChanged("Date");
                 }
             }
         }
