@@ -19,27 +19,44 @@ namespace QUTCal.ViewModels
     {
         private readonly DatabaseService _databaseService;
 
+        public ICommand DeleteCommand { protected set; get; }
+        public ICommand ReloadCommand { protected set; get; }
+
         public SubjectViewModel()
         {
             _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Subjects = new ObservableCollection<Subject>();
             LoadSubjects();
-            DeleteCommand = new Command<Subject>(delete);
-        }
 
-        public ObservableCollection<Subject> Subjects { get; set; }
+            DeleteCommand = new Command<Subject>(delete);
+            ReloadCommand = new Command(reload);
+        }
 
         public async void add(Subject subject)
         {
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
             subject.Id = await _databaseService.SaveSubject(subject);
 
+            // Keep the observable collection up to date.
             Subjects.Add(subject);
             OnPropertyChanged("Subjects");
         }
 
         public void delete(Subject subject)
         {
+            // Keep the observable collection up to date.
             Subjects.Remove(subject);
+            OnPropertyChanged("Subjects");
+
+            // Perform the remove operation on the database.
+            _databaseService.RemoveSubject(subject);
+        }
+
+        public void reload()
+        {
+            Subjects = new ObservableCollection<Subject>();
+            LoadSubjects();
             OnPropertyChanged("Subjects");
         }
         
@@ -47,8 +64,6 @@ namespace QUTCal.ViewModels
         {
             Subjects = new ObservableCollection<Subject>(await _databaseService.GetSubjectsAsync());
         }
-
-        public ICommand DeleteCommand { protected set; get; }
 
         private ObservableCollection<Subject> _subjects;
 

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using System.IO;
 using QUTCal.Models;
 using QUTCal.Services;
@@ -13,37 +16,67 @@ namespace QUTCal.ViewModels
     {
         private readonly DatabaseService _databaseService;
 
+        public ICommand DeleteCommand { protected set; get; }
+        public ICommand ReloadCommand { protected set; get; }
+
         public ClassViewModel()
         {
             _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Classes = new ObservableCollection<Class>();
-            LoadSubjects();
+            LoadClasses();
+            
             DeleteCommand = new Command<Class>(delete);
+            ReloadCommand = new Command(reload);
         }
-
-        public ObservableCollection<Class> Classes { get; set; }
 
         public async void add(Class _class)
         {
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
             _class.Id = await _databaseService.SaveClass(_class);
 
+            // Keep the observable collection up to date.
             Classes.Add(_class);
             OnPropertyChanged("Classes");
         }
-        
-        public ICommand DeleteCommand { protected set; get; }
 
-        public async void LoadSubjects()
+        public void delete(Class _class)
+        {
+            // Keep the observable collection up to date.
+            Classes.Remove(_class);
+            OnPropertyChanged("Classes");
+
+            // Perform the remove operation on the database.
+            _databaseService.RemoveClass(_class);
+        }
+
+        public void reload()
+        {
+            Classes = new ObservableCollection<Class>();
+            LoadClasses();
+            OnPropertyChanged("Classes");
+        }
+
+        public async void LoadClasses()
         {
             Classes = new ObservableCollection<Class>(await _databaseService.GetClassesAsync());
         }
-        
-        public void delete(Class _class)
+
+        public ObservableCollection<Class> _classes;
+
+        public ObservableCollection<Class> Classes
         {
-            Classes.Remove(_class);
-            OnPropertyChanged("Classes");
+            get { return _classes; }
+            set
+            {
+                if (_classes != value)
+                {
+                    _classes = value;
+                    OnPropertyChanged("Classes");
+                }
+            }
         }
-        
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)

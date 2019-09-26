@@ -44,6 +44,11 @@ namespace QUTCal.Services
             }
         }
 
+        public Task<int> RemoveClass(Class _class)
+        {
+            return _database.DeleteAsync(_class);
+        }
+
         public Task<List<Subject>> GetSubjectsAsync()
         {
             return _database.Table<Subject>().ToListAsync();
@@ -67,6 +72,11 @@ namespace QUTCal.Services
             {
                 return _database.UpdateAsync(subject);
             }
+        }
+
+        public Task<int> RemoveSubject(Subject subject)
+        {
+            return _database.DeleteAsync(subject);
         }
 
     }

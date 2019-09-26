@@ -8,13 +8,13 @@ namespace QUTCal.Models
 
     public class Class : INotifyPropertyChanged
     {
-        [PrimaryKey, AutoIncrement]
         private int id { get; set; }
         private string unitCode;
         private string classType;
         private string location;
         private DateTime dateAndTime;
 
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get

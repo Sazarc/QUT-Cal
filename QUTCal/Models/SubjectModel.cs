@@ -8,11 +8,11 @@ namespace QUTCal.Models
 
     public class Subject : INotifyPropertyChanged
     {
-        [PrimaryKey, AutoIncrement]
         private int id { get; set; }
         private string code;
         private string text;
 
+        [PrimaryKey, AutoIncrement]
         public int Id
         {
             get
