@@ -37,6 +37,17 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="MaterPage.xaml.cs">
+      <DependentUpon>MaterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\AddContacts.xaml.cs">
+      <DependentUpon>AddContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ContactsPage.xaml.cs">
+      <DependentUpon>ContactsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="CalendarTabbedPage.xaml">

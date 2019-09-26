@@ -3,8 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="using:QUTCal"
-    xmlns:views="using:QUTCal.Views"
-    x:Class="QUTCal.MyPage"
+    xmlns:localViews="clr-namespace:QUTCal.Views"
+    x:Class="QUTCal.MasterPage"
     Padding="0,40,0,0"
 	IconImageSource="burgerStack.png"
     Title="QUTCal">
@@ -12,9 +12,9 @@
         <ListView x:Name="listView" x:FieldModifier="public">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type local:MasterPageItem}">
-                    <local:MasterPageItem Title="Classes"  TargetType="{x:Type views:ClassesPage}" />
-                    <local:MasterPageItem Title="Subjects" TargetType="{x:Type views:SubjectsPage}" />
-                    <local:MasterPageItem Title="Contacts"  TargetType="{x:Type views:ContactsPage}" />
+                    <local:MasterPageItem Title="Classes"  TargetType="{x:Type localViews:ClassesPage}" />
+                    <local:MasterPageItem Title="Subjects" TargetType="{x:Type localViews:SubjectsPage}" />
+                    <local:MasterPageItem Title="Contacts"  TargetType="{x:Type localViews:ContactsPage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>

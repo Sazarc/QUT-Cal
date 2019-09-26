@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace QUTCal
 {
-    public partial class MyPage : ContentPage
+    public partial class MasterPage : ContentPage
     {
-        public MyPage()
+        public MasterPage()
         {
             InitializeComponent();
         }
