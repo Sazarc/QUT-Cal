@@ -19,6 +19,8 @@ namespace QUTCal
         {
             BindingContext = new MainPageViewModel(Navigation);
             InitializeComponent();
+
+            
         }
 
         private async void ClassesPage_OnClicked(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace QUTCal
 
         private async void ContactsPage_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Full_Contacts_Page());
+            await Navigation.PushAsync(new ContactsPage());
         }
         private async void SubjectsPage_OnClicked(object sender, EventArgs e)
         {

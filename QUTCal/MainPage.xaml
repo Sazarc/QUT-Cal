@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:QUTCal"
              mc:Ignorable="d"
              x:Class="QUTCal.MainPage"
-             Title="QUT Cal" NavigationPage.HasNavigationBar="True">
+             Title="QUT Cal" NavigationPage.HasNavigationBar="False">
 
+    
     <ContentPage.Content>
         <StackLayout Margin="100" Padding="0,10,0,0">
             <Label FontSize="20" Text="Today" />
