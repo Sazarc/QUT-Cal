@@ -13,11 +13,19 @@
         <StackLayout Padding="30"
                      AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                      AbsoluteLayout.LayoutFlags="All">
-            <ListView ItemsSource="{Binding Subjects}">
+            <ListView ItemsSource="{Binding Subjects}"
+                      SelectionMode="None"
+                      x:Name="items">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Code}"
-                                  Detail="{Binding Unit}" />
+                                  Detail="{Binding Unit}">
+                            <TextCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </TextCell.ContextActions>
+                        </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
