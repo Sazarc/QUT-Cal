@@ -81,6 +81,15 @@ namespace QUTCal.Models
                 }
             }
         }
+
+        public string PersonalDetails
+        {
+            get
+            {
+                return emailaddress + " " + phonenumber;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void RaisePropertyChanged(string property)
