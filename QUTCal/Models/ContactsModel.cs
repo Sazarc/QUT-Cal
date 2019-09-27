@@ -43,6 +43,14 @@ namespace QUTCal.Models
             }
         }
 
+        public string FullName
+        {
+            get
+            {
+                return firstname + " " + surname;
+            }
+        }
+
         public string EmailAddress
         {
             get
