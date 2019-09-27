@@ -31,7 +31,6 @@
     <Compile Remove="ViewModels\ShellBaseViewModel.cs" />
     <Compile Remove="Services\SubjectSample.cs" />
     <Compile Remove="Services\SubjectDataStore.cs" />
-    <Compile Remove="Views\AddContacts.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
