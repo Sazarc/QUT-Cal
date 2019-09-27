@@ -1,19 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+using QUTCal.Models;
+using QUTCal.ViewModels;
 
 namespace QUTCal.Views
 {
     public partial class AddContacts : ContentPage
     {
+        public Contact Contacts { get; set; }
+
         public AddContacts()
         {
             InitializeComponent();
+
+            Contacts = new Contact
+            {
+                FirstName = "",
+                Surname = "",
+                EmailAddress = "",
+                PhoneNumber = ""
+            };
+
+            BindingContext = this;
+        }
+
+        async void Save_Clicked(object sender, EventArgs e)
+        {
+            ContactsViewModel viewModel = (ContactsViewModel)Application.Current.Resources["ContactsViewModel"];
+            viewModel.add(Contacts);
+            await Navigation.PopAsync();
+        }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }
+

@@ -2,9 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              BindingContext="{StaticResource ContactsViewModel}"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
              Title="Contacts"
              x:Class="QUTCal.Views.ContactsPage">
     
@@ -19,12 +16,6 @@
                 AbsoluteLayout.LayoutFlags="All">
 
             <ListView ItemsSource="{Binding Contacts}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Code}"
-                                  Detail="{Binding Contact}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
             </ListView>
 
         </StackLayout>
