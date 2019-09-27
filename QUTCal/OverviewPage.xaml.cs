@@ -23,19 +23,6 @@ namespace QUTCal
             
         }
 
-        private async void ClassesPage_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ClassesPage());
-        }
-
-        private async void ContactsPage_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ContactsPage());
-        }
-        private async void SubjectsPage_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SubjectsPage());
-        }
     }
 
    

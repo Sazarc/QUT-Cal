@@ -15,6 +15,7 @@
                     <qutCal:MasterPageItem Title="Classes"  TargetType="{x:Type localViews:ClassesPage}" />
                     <qutCal:MasterPageItem Title="Subjects" TargetType="{x:Type localViews:SubjectsPage}" />
                     <qutCal:MasterPageItem Title="Contacts"  TargetType="{x:Type localViews:ContactsPage}" />
+                    
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
