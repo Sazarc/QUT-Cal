@@ -121,6 +121,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Licensing" Version="17.2.0.51" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.2.0.51" />
     <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
       <Version>17.2.0.51</Version>
     </PackageReference>
