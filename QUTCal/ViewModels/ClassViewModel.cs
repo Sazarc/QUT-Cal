@@ -21,14 +21,28 @@ namespace QUTCal.ViewModels
 
         public ObservableCollection<Class> Classes { get; set; }
 
+        public ObservableCollection<Class> ClassesInDate(DateTime date)
+        {
+            ObservableCollection<Class> classesInDate = new ObservableCollection<Class>();
+
+            foreach (Class _class in Classes)
+            {
+                if(_class.DateAndTime.Date == date.Date)
+                {
+                    classesInDate.Add(_class);
+                }
+            }
+
+            return classesInDate;
+        }
+
         public void add(Class _class)
         {
             Classes.Add(_class);
             OnPropertyChanged("Classes");
         }
-        
-        public ICommand DeleteCommand { protected set; get; }
 
+        // Default subjects for testing
         public void LoadSubjects()
         {
             ObservableCollection<Class> defClasses = Classes;
@@ -42,13 +56,17 @@ namespace QUTCal.ViewModels
 
             Classes = defClasses;
         }
-        
+
+        #region Delete components
         public void delete(Class _class)
         {
             Classes.Remove(_class);
             OnPropertyChanged("Classes");
         }
-        
+
+        public ICommand DeleteCommand { protected set; get; }
+        #endregion
+
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
