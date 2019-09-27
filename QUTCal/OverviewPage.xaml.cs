@@ -17,7 +17,7 @@ namespace QUTCal
     {
         public OverviewPage()
         {
-            BindingContext = new MainPageViewModel(Navigation);
+      
             InitializeComponent();
 
             

@@ -12,8 +12,6 @@
         <StackLayout Margin="100" Padding="0,10,0,0">
             <Label FontSize="20" Text="Today" />
             <Label FontSize="20" Text="Upcoming" />
-            <Button Text="Goto Tabbed View"
-                                    Command="{Binding GotoCalendarViewCommand}" />
         </StackLayout>
     </ContentPage.Content>
 
