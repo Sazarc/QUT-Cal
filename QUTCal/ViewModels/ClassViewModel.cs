@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using System.IO;
 using QUTCal.Models;
+using QUTCal.Services;
 using QUTCal.Views;
 using Xamarin.Forms;
 
@@ -12,15 +14,30 @@ namespace QUTCal.ViewModels
 {
     public class ClassViewModel : INotifyPropertyChanged
     {
+        private readonly DatabaseService _databaseService;
+
+        public ICommand DeleteCommand { protected set; get; }
+
         public ClassViewModel()
         {
+            _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Classes = new ObservableCollection<Class>();
-            LoadSubjects();
+            LoadClasses();
+            
             DeleteCommand = new Command<Class>(delete);
         }
 
-        public ObservableCollection<Class> Classes { get; set; }
+        public async void add(Class _class)
+        {
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
+            _class.Id = await _databaseService.SaveClass(_class);
 
+            Classes.Add(_class);
+            OnPropertyChanged("Classes");
+        }
+
+        // Keep the observable collection up to date.
         public ObservableCollection<Class> ClassesInDate(DateTime date)
         {
             ObservableCollection<Class> classesInDate = new ObservableCollection<Class>();
@@ -36,36 +53,35 @@ namespace QUTCal.ViewModels
             return classesInDate;
         }
 
-        public void add(Class _class)
-        {
-            Classes.Add(_class);
-            OnPropertyChanged("Classes");
-        }
-
-        // Default subjects for testing
-        public void LoadSubjects()
-        {
-            ObservableCollection<Class> defClasses = Classes;
-
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "CAB303", ClassType = "Lecture", Location = "S513",
-                DateAndTime = new DateTime(2019, 9, 23, 15, 0, 0) });
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "CAB432", ClassType = "Practical", Location = "G216", 
-                DateAndTime = new DateTime(2019, 9, 29, 15, 0, 0) });
-            defClasses.Add(new Class { Id = Guid.NewGuid().ToString(), UnitCode = "IAB330", ClassType = "Tutorial", Location = "F101", 
-                DateAndTime = new DateTime(2019, 9, 30, 15, 0, 0) });
-
-            Classes = defClasses;
-        }
-
-        #region Delete components
         public void delete(Class _class)
         {
+            // Keep the observable collection up to date.
             Classes.Remove(_class);
             OnPropertyChanged("Classes");
+
+            // Perform the remove operation on the database.
+            _databaseService.RemoveClass(_class);
         }
 
-        public ICommand DeleteCommand { protected set; get; }
-        #endregion
+        public async void LoadClasses()
+        {
+            Classes = new ObservableCollection<Class>(await _databaseService.GetClassesAsync());
+        }
+
+        public ObservableCollection<Class> _classes;
+
+        public ObservableCollection<Class> Classes
+        {
+            get { return _classes; }
+            set
+            {
+                if (_classes != value)
+                {
+                    _classes = value;
+                    OnPropertyChanged("Classes");
+                }
+            }
+        }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",

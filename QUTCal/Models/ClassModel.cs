@@ -1,19 +1,21 @@
 ﻿using System;
 using QUTCal.Models;
 using System.ComponentModel;
+using SQLite;
 
 namespace QUTCal.Models
 {
 
     public class Class : INotifyPropertyChanged
     {
-        private string id;
+        private int id { get; set; }
         private string unitCode;
         private string classType;
         private string location;
         private DateTime dateAndTime;
 
-        public string Id
+        [PrimaryKey, AutoIncrement]
+        public int Id
         {
             get
             {

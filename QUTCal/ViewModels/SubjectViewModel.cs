@@ -10,42 +10,51 @@ using Xamarin.Forms;
 
 using QUTCal.Models;
 using QUTCal.Views;
+using QUTCal.Services;
+using System.IO;
 
 namespace QUTCal.ViewModels
 {
     public class SubjectViewModel : INotifyPropertyChanged
     {
+        private readonly DatabaseService _databaseService;
+
+        public ICommand DeleteCommand { protected set; get; }
+
         public SubjectViewModel()
         {
+            _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Subjects = new ObservableCollection<Subject>();
             LoadSubjects();
+
             DeleteCommand = new Command<Subject>(delete);
         }
 
-        public void add(Subject subject)
+        public async void add(Subject subject)
         {
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
+            subject.Id = await _databaseService.SaveSubject(subject);
+
+            // Keep the observable collection up to date.
             Subjects.Add(subject);
             OnPropertyChanged("Subjects");
         }
 
         public void delete(Subject subject)
         {
+            // Keep the observable collection up to date.
             Subjects.Remove(subject);
             OnPropertyChanged("Subjects");
+
+            // Perform the remove operation on the database.
+            _databaseService.RemoveSubject(subject);
         }
         
-        public void LoadSubjects()
+        public async void LoadSubjects()
         {
-            ObservableCollection<Subject> defSubjects = Subjects;
-
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB303", Text = "Networks" });
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "CAB432", Text = "Cloud Computing" });
-            defSubjects.Add(new Subject { Id = Guid.NewGuid().ToString(), Code = "IAB330", Text = "Mobile Application Development" });
-
-            Subjects = defSubjects;
+            Subjects = new ObservableCollection<Subject>(await _databaseService.GetSubjectsAsync());
         }
-
-        public ICommand DeleteCommand { protected set; get; }
 
         private ObservableCollection<Subject> _subjects;
 
