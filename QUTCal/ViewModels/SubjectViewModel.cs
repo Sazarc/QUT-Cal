@@ -20,7 +20,6 @@ namespace QUTCal.ViewModels
         private readonly DatabaseService _databaseService;
 
         public ICommand DeleteCommand { protected set; get; }
-        public ICommand ReloadCommand { protected set; get; }
 
         public SubjectViewModel()
         {
@@ -29,7 +28,6 @@ namespace QUTCal.ViewModels
             LoadSubjects();
 
             DeleteCommand = new Command<Subject>(delete);
-            ReloadCommand = new Command(reload);
         }
 
         public async void add(Subject subject)
@@ -51,13 +49,6 @@ namespace QUTCal.ViewModels
 
             // Perform the remove operation on the database.
             _databaseService.RemoveSubject(subject);
-        }
-
-        public void reload()
-        {
-            Subjects = new ObservableCollection<Subject>();
-            LoadSubjects();
-            OnPropertyChanged("Subjects");
         }
         
         public async void LoadSubjects()
