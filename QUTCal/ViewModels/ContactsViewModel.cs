@@ -10,42 +10,50 @@ using Xamarin.Forms;
 
 using QUTCal.Models;
 using QUTCal.Views;
+using QUTCal.Services;
+using System.IO;
 
 namespace QUTCal.ViewModels
 {
     public class ContactsViewModel : INotifyPropertyChanged
     {
+        private readonly DatabaseService _databaseService;
+
+        public ICommand DeleteCommand { protected set; get; }
+
         public ContactsViewModel()
         {
+            _databaseService = new DatabaseService(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "QUTCalDB.db3"));
             Contacts = new ObservableCollection<Contact>();
             LoadContacts();
+
             DeleteCommand = new Command<Contact>(delete);
         }
 
-        public void add(Contact contacts)
+        public async void add(Contact contact)
         {
-            Contacts.Add(contacts);
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
+            contact.Id = await _databaseService.SaveContact(contact);
+
+            Contacts.Add(contact);
             OnPropertyChanged("Contacts");
         }
 
-        public void delete(Contact contacts)
+        public async void delete(Contact contact)
         {
-            Contacts.Remove(contacts);
+            // Keep the observable collection up to date.
+            Contacts.Remove(contact);
             OnPropertyChanged("Contacts");
+
+            // Perform the remove operation on the database.
+            _ = _databaseService.RemoveContact(contact);
         }
 
-        public void LoadContacts()
+        public async void LoadContacts()
         {
-            ObservableCollection<Contact> defContacts = Contacts;
-
-            defContacts.Add(new Contact { FirstName = "Shawn", Surname = "Hunter", EmailAddress = "shawnhunter12@gmail.com", PhoneNumber = "0433 582 723" });
-            defContacts.Add(new Contact { FirstName = "Alisa", Surname = "Bosconovitch", EmailAddress = "alisab@levosa.com", PhoneNumber = "0456 612 784" });
-            defContacts.Add(new Contact { FirstName = "Daniel", Surname = "Viktor", EmailAddress = "dviktor@hotmail.com", PhoneNumber = "0499 146 356" });
-
-            Contacts = defContacts;
+            Contacts = new ObservableCollection<Contact>(await _databaseService.GetContactsAsync());
         }
-
-        public ICommand DeleteCommand { protected set; get; }
 
         private ObservableCollection<Contact> _contacts;
 

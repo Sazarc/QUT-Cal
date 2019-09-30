@@ -1,16 +1,36 @@
-﻿using System;
+using System;
 using QUTCal.Models;
 using System.ComponentModel;
+using SQLite;
 
 namespace QUTCal.Models
 {
 
     public class Contact : INotifyPropertyChanged
     {
+        private int id { get; set; }
         private string firstname;
         private string surname;
         private string emailaddress;
         private string phonenumber;
+
+        [PrimaryKey, AutoIncrement]
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                if (id != value)
+                {
+                    id = value;
+                    RaisePropertyChanged("Id");
+                }
+            }
+        }
 
         public string FirstName
         {

@@ -9,14 +9,28 @@ namespace QUTCal.Services
 {
     class DatabaseService
     {
-
         readonly SQLiteAsyncConnection _database;
 
         public DatabaseService(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
+            CreateTables();
+        }
+
+        public void CreateTables()
+        {
             _database.CreateTableAsync<Class>().Wait();
             _database.CreateTableAsync<Subject>().Wait();
+            _database.CreateTableAsync<Contact>().Wait();
+        }
+
+        public void RecreateTables()
+        {
+            _database.DropTableAsync<Class>().Wait();
+            _database.DropTableAsync<Subject>().Wait();
+            _database.DropTableAsync<Contact>().Wait();
+
+            CreateTables();
         }
 
         public Task<List<Class>> GetClassesAsync()
@@ -77,6 +91,36 @@ namespace QUTCal.Services
         public Task<int> RemoveSubject(Subject subject)
         {
             return _database.DeleteAsync(subject);
+        }
+
+        public Task<List<Contact>> GetContactsAsync()
+        {
+            return _database.Table<Contact>().ToListAsync();
+        }
+
+        public Task<Contact> GetContactById(Contact contact)
+        {
+            return _database.Table<Contact>()
+                .Where(i => i.Id == contact.Id)
+                .FirstOrDefaultAsync();
+        }
+
+        public Task<int> SaveContact(Contact contact)
+        {
+            if (contact.Id == 0)
+            {
+                // New class
+                return _database.InsertAsync(contact);
+            }
+            else
+            {
+                return _database.UpdateAsync(contact);
+            }
+        }
+
+        public Task<int> RemoveContact(Contact contact)
+        {
+            return _database.DeleteAsync(contact);
         }
 
     }
