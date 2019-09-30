@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using QUTCal.Models;
 using System.ComponentModel;
 using SQLite;
@@ -118,6 +118,13 @@ namespace QUTCal.Models
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
+        }
+
+        public static Contact ID(int id)
+        {
+            Contact c = new Contact();
+            c.Id = id;
+            return c;
         }
     }
 }

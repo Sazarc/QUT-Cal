@@ -17,11 +17,23 @@ namespace QUTCal.Services
             CreateTables();
         }
 
-        public void CreateTables()
+        public async void CreateTables()
         {
             _database.CreateTableAsync<Class>().Wait();
             _database.CreateTableAsync<Subject>().Wait();
             _database.CreateTableAsync<Contact>().Wait();
+
+            // Contacts 'add' page isn't working - temporarily add some test contacts
+            if (await GetContactById(Contact.ID(1)) == null)
+            {
+                Contact contact_1 = new Contact { FirstName = "Shawn", Surname = "Hunter", EmailAddress = "shawnhunter12@gmail.com", PhoneNumber = "0433 582 723" };
+                Contact contact_2 = new Contact { FirstName = "Alisa", Surname = "Bosconovitch", EmailAddress = "alisab@levosa.com", PhoneNumber = "0456 612 784" };
+                Contact contact_3 = new Contact { FirstName = "Daniel", Surname = "Viktor", EmailAddress = "dviktor@hotmail.com", PhoneNumber = "0499 146 356" };
+
+                _ = SaveContact(contact_1);
+                _ = SaveContact(contact_2);
+                _ = SaveContact(contact_3);
+            }
         }
 
         public void RecreateTables()
