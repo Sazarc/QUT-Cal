@@ -35,7 +35,11 @@ namespace QUTCal.ViewModels
             // and update the model with the newly created ID.
             _class.Id = await _databaseService.SaveClass(_class);
 
-            // Keep the observable collection up to date.
+            Classes.Add(_class);
+            OnPropertyChanged("Classes");
+        }
+
+        // Keep the observable collection up to date.
         public ObservableCollection<Class> ClassesInDate(DateTime date)
         {
             ObservableCollection<Class> classesInDate = new ObservableCollection<Class>();
@@ -49,12 +53,6 @@ namespace QUTCal.ViewModels
             }
 
             return classesInDate;
-        }
-
-        public void add(Class _class)
-        {
-            Classes.Add(_class);
-            OnPropertyChanged("Classes");
         }
 
         public void delete(Class _class)
