@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QUTCal"
+             mc:Ignorable="d"
+             x:Class="QUTCal.OverviewPage"
+             BindingContext="{StaticResource ClassViewModel}"
+             Title="QUT Cal">
+
+    <ContentPage.Content>
+        <StackLayout Margin="20,0" Padding="0,10,0,0">
+                <StackLayout Margin="0,20,0,0" Padding="0,10,0,0">
+                    <Label FontSize="20" Text="Upcoming Classes" />
+
+                    <ListView ItemsSource="{Binding Classes}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid VerticalOptions="Start" HorizontalOptions="FillAndExpand" Margin="0,20,0,0" Padding="10,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65" />
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="55" />
+
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding UnitCode}"></Label>
+                                        <Label Grid.Column="1" Text="{Binding ClassType}"></Label>
+                                        <Label Grid.Column="2" Text="{Binding Location}"></Label>
+                                        <Label Grid.Column="3" Text="{Binding DateAndTime, StringFormat='{0:ddd d }{0:HH\\:mm}'}"></Label>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+
+                </StackLayout>
+               
+            </StackLayout>
+        
+    </ContentPage.Content>
+
+
+</ContentPage>
+
+    

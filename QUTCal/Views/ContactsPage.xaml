@@ -1,32 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BindingContext="{StaticResource ContactsViewModel}"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             Title="Contacts"
-             x:Class="QUTCal.Views.ContactsPage">
-    
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BindingContext="{StaticResource ContactsViewModel}"
+    x:Class="QUTCal.Views.ContactsPage"
+    Title="Contacts">
     <ContentPage.ToolbarItems>
         <!--<ToolbarItem Text="Add" Clicked="AddItem_Clicked" />-->
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout
-                Padding="30"
-                AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
-                AbsoluteLayout.LayoutFlags="All">
-
-            <ListView ItemsSource="{Binding Contacts}">
+        <StackLayout Padding="30">
+            <ListView ItemsSource="{Binding Contacts}"
+                      SelectionMode="None"
+                      x:Name="items">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Code}"
-                                  Detail="{Binding Contact}" />
+                        <TextCell Text="{Binding FullName}"
+                                    Detail="{Binding PersonalDetails}">
+                            <TextCell.ContextActions>
+                                <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"
+                                          CommandParameter="{Binding .}"
+                                          Text="Delete" IsDestructive="True" />
+                            </TextCell.ContextActions>
+                        </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,42 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
-using QUTCal.Views;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace QUTCal
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : MasterDetailPage
     {
         public MainPage()
         {
-            BindingContext = new MainPageViewModel(Navigation);
             InitializeComponent();
 
-            
+            masterPage.listView.ItemSelected += OnItemSelected;
+
+            if (Device.RuntimePlatform == Device.UWP)
+            {
+                MasterBehavior = MasterBehavior.Popover;
+            }
         }
 
-        private async void ClassesPage_OnClicked(object sender, EventArgs e)
+        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new ClassesPage());
-        }
-
-        private async void ContactsPage_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new ContactsPage());
-        }
-        private async void SubjectsPage_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new SubjectsPage());
+            var item = e.SelectedItem as MasterPageItem;
+            if (item != null)
+            {
+                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType))
+                {
+                    BarBackgroundColor = Color.FromHex("#003B62"),
+                    BarTextColor = Color.White
+                };
+                masterPage.listView.SelectedItem = null;
+                IsPresented = false;
+            }
         }
     }
-
-   
 }
