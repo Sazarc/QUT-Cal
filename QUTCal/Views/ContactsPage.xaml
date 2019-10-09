@@ -6,7 +6,7 @@
     x:Class="QUTCal.Views.ContactsPage"
     Title="Contacts">
     <ContentPage.ToolbarItems>
-        <!--<ToolbarItem Text="Add" Clicked="AddItem_Clicked" />-->
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -17,7 +17,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding FullName}"
-                                    Detail="{Binding PersonalDetails}">
+                                  Detail="{Binding PersonalDetails}">
                             <TextCell.ContextActions>
                                 <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"
                                           CommandParameter="{Binding .}"

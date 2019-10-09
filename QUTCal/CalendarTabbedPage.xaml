@@ -10,29 +10,33 @@
              Title="Calendar" NavigationPage.HasNavigationBar="True">
     <!--Pages can be added as references or inline-->
     <ContentPage Title="Day">
-        <schedule:SfSchedule ScheduleView ="DayView">
+        <schedule:SfSchedule ScheduleView ="DayView"
+                             DataSource="{Binding ClassScheduleAppointments}">
         </schedule:SfSchedule>
     </ContentPage>
 
     <ContentPage Title="Week">
-        <schedule:SfSchedule ScheduleView ="WeekView">
+        <schedule:SfSchedule ScheduleView ="WeekView"
+                             DataSource="{Binding ClassScheduleAppointments}">
         </schedule:SfSchedule>
     </ContentPage>
 
     <ContentPage Title="Month">
         <StackLayout>
             <calendar:SfCalendar x:Name="calendar"
-                                 SelectedDate="{Binding SelectedDate, Mode=TwoWay}">
-                <calendar:SfCalendar.HeaderView>
-                    <Label Text="{Binding CalendarMonth}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Large" />
-                </calendar:SfCalendar.HeaderView>
+                                 DataSource="{Binding ClassCalendarEvents}"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 ShowInlineEvents="true">
             </calendar:SfCalendar>
 
-            <ListView x:Name="remindersList" ItemsSource="{Binding Reminders}">
+            <ListView x:Name="classesList"
+                      ItemsSource="{Binding Classes}"
+                      SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Description}"
-                                  Detail="{Binding UnitCode}"
+                        <TextCell Text="{Binding Detail}"
+                                  Detail="{Binding DateAndTime}"
                                   TextColor="Black"
                                   DetailColor="LightGray" />
                     </DataTemplate>
