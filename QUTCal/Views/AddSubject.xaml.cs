@@ -26,13 +26,8 @@ namespace QUTCal.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            SubjectViewModel viewModel = (SubjectViewModel) Application.Current.Resources["SubjectViewModel"];
+            SubjectViewModel viewModel = (SubjectViewModel)Application.Current.Resources["SubjectViewModel"];
             viewModel.add(Subject);
-            await Navigation.PopAsync();
-        }
-
-        async void Cancel_Clicked(object sender, EventArgs e)
-        {
             await Navigation.PopAsync();
         }
     }

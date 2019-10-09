@@ -8,8 +8,7 @@
              x:Class="QUTCal.Views.AddContacts">
 
     <ContentPage.ToolbarItems>
-        <!--<ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />-->
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -18,13 +17,13 @@
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
             <Label FontSize="20" Text="First Name: " />
-            <Entry Text="{Binding Contact.FirstName}" Placeholder="Eg. Shawn" />
+            <Entry Text="{Binding Contacts.FirstName}" Placeholder="Eg. Shawn" />
             <Label FontSize="20" Text="Surname: " />
-            <Entry Text="{Binding Contact.Surname}" Placeholder="Eg. Hunter" />
+            <Entry Text="{Binding Contacts.Surname}" Placeholder="Eg. Hunter" />
             <Label FontSize="20" Text="Email Address: " />
-            <Entry Text="{Binding Contact.EmailAddress}" Placeholder="Eg. shawnhunter12@gmail.com" />
+            <Entry Text="{Binding Contacts.EmailAddress}" Placeholder="Eg. shawnhunter12@gmail.com" />
             <Label FontSize="20" Text="Phone Number" />
-            <Entry Text="{Binding Contact.PhoneNumber}" Placeholder="Eg. 0433 582 723" />
+            <Entry Text="{Binding Contacts.PhoneNumber}" Placeholder="Eg. 0433 582 723" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

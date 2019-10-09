@@ -32,11 +32,6 @@ namespace QUTCal.Views
             viewModel.add(Contacts);
             await Navigation.PopAsync();
         }
-
-        async void Cancel_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
     }
 }
 
