@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QUTCal.iOS", "QUTCal.iOS\QU
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QUTCal", "QUTCal\QUTCal.csproj", "{6B881D98-DDFF-465D-AEB1-3ACF288E5600}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QUTCal.Test", "QUTCal-Test\QUTCal.Test.csproj", "{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{6B881D98-DDFF-465D-AEB1-3ACF288E5600}.Release|iPhone.Build.0 = Release|Any CPU
 		{6B881D98-DDFF-465D-AEB1-3ACF288E5600}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{6B881D98-DDFF-465D-AEB1-3ACF288E5600}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|iPhone.Build.0 = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{41E8E065-B3CF-4BD5-B712-65E6B80A1FCB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
