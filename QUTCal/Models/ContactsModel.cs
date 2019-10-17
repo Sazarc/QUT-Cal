@@ -9,8 +9,7 @@ namespace QUTCal.Models
     public class Contact : INotifyPropertyChanged
     {
         private int id { get; set; }
-        private string firstname;
-        private string surname;
+        private string name;
         private string emailaddress;
         private string phonenumber;
 
@@ -32,44 +31,23 @@ namespace QUTCal.Models
             }
         }
 
-        public string FirstName
+        public string Name
         {
             get
             {
-                return firstname;
+                return name;
             }
 
             set
             {
-                if (firstname != value)
+                if (name != value)
                 {
-                    firstname = value;
-                    RaisePropertyChanged("First Name");
+                    name = value;
+                    RaisePropertyChanged("Name");
                 }
             }
         }
 
-        public string Surname
-        {
-            get { return surname; }
-
-            set
-            {
-                if (surname != value)
-                {
-                    surname = value;
-                    RaisePropertyChanged("Surname");
-                }
-            }
-        }
-
-        public string FullName
-        {
-            get
-            {
-                return firstname + " " + surname;
-            }
-        }
 
         public string EmailAddress
         {

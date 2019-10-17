@@ -16,10 +16,8 @@
                 Padding="30"
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
-            <Label FontSize="20" Text="First Name: " />
-            <Entry Text="{Binding Contacts.FirstName}" Placeholder="Eg. Shawn" />
-            <Label FontSize="20" Text="Surname: " />
-            <Entry Text="{Binding Contacts.Surname}" Placeholder="Eg. Hunter" />
+            <Label FontSize="20" Text="Name: " />
+            <Entry Text="{Binding Contacts.Name}" Placeholder="Eg. Shawn Hunter" />
             <Label FontSize="20" Text="Email Address: " />
             <Entry Text="{Binding Contacts.EmailAddress}" Placeholder="Eg. shawnhunter12@gmail.com" />
             <Label FontSize="20" Text="Phone Number" />

@@ -12,11 +12,11 @@
     <ContentPage.Content>
         <StackLayout Padding="30">
             <ListView ItemsSource="{Binding Contacts}"
-                      SelectionMode="None"
+                      SelectionMode="None"                           
                       x:Name="items">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding FullName}"
+                        <TextCell Text="{Binding Name}"
                                   Detail="{Binding PersonalDetails}">
                             <TextCell.ContextActions>
                                 <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"

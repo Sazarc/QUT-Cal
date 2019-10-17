@@ -17,8 +17,7 @@ namespace QUTCal.Views
 
             Contacts = new Contact
             {
-                FirstName = "",
-                Surname = "",
+                Name = "",
                 EmailAddress = "",
                 PhoneNumber = ""
             };
