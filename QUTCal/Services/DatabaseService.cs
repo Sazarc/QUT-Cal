@@ -24,16 +24,6 @@ namespace QUTCal.Services
             _database.CreateTableAsync<Contact>().Wait();
 
             // Contacts 'add' page isn't working - temporarily add some test contacts
-            if (await GetContactById(Contact.ID(1)) == null)
-            {
-                Contact contact_1 = new Contact { Name= "Shawn Hunter", EmailAddress = "shawnhunter12@gmail.com", PhoneNumber = "0433 582 723" };
-                Contact contact_2 = new Contact { Name = "Alisa Bosconovitch", EmailAddress = "alisab@levosa.com", PhoneNumber = "0456 612 784" };
-                Contact contact_3 = new Contact { Name = "Daniel Viktor", EmailAddress = "dviktor@hotmail.com", PhoneNumber = "0499 146 356" };
-
-                _ = SaveContact(contact_1);
-                _ = SaveContact(contact_2);
-                _ = SaveContact(contact_3);
-            }
         }
 
         public void RecreateTables()
