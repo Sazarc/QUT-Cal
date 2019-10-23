@@ -14,8 +14,8 @@
                 <x:Array Type="{x:Type qutCal:MasterPageItem}">
                     <qutCal:MasterPageItem Title="Home"  TargetType="{x:Type qutCal:OverviewPage}" />
                     <qutCal:MasterPageItem Title="Calendar"  TargetType="{x:Type qutCal:CalendarTabbedPage}" />
+                    <qutCal:MasterPageItem Title="Units" TargetType="{x:Type localViews:SubjectsPage}" />
                     <qutCal:MasterPageItem Title="Classes"  TargetType="{x:Type localViews:ClassesPage}" />
-                    <qutCal:MasterPageItem Title="Subjects" TargetType="{x:Type localViews:SubjectsPage}" />
                     <qutCal:MasterPageItem Title="Contacts"  TargetType="{x:Type localViews:ContactsPage}" />
                     
                 </x:Array>
