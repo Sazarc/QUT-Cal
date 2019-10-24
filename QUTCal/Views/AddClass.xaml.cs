@@ -18,6 +18,7 @@ namespace QUTCal.Views
             InitializeComponent();
             Time = new TimeSpan();
             Class = new Class();
+            Class.DateAndTime = DateTime.Now.Date;
             endDate = new DateTime();
 
             BindingContext = this;
