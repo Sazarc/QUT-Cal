@@ -17,11 +17,17 @@
                 AbsoluteLayout.LayoutBounds="0,1.2,1,0.85"
                 AbsoluteLayout.LayoutFlags="All">
             <Label FontSize="20" Text="Name: " />
-            <Entry Text="{Binding Contacts.Name}" Placeholder="Eg. Shawn Hunter" />
+            <Entry Text="{Binding Contacts.Name}" 
+                   Placeholder="Eg. Shawn Hunter" />
             <Label FontSize="20" Text="Email Address: " />
-            <Entry Text="{Binding Contacts.EmailAddress}" Placeholder="Eg. shawnhunter12@gmail.com" />
+            <Entry Text="{Binding Contacts.EmailAddress}" 
+                   Placeholder="Eg. shawnhunter12@gmail.com"
+                   Keyboard="Email"/>
             <Label FontSize="20" Text="Phone Number" />
-            <Entry Text="{Binding Contacts.PhoneNumber}" Placeholder="Eg. 0433 582 723" />
+            <Entry Text="{Binding Contacts.PhoneNumber}" 
+                   Placeholder="Eg. 0433582723"
+                   MaxLength="10"
+                   Keyboard="Telephone"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
