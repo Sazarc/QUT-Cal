@@ -13,7 +13,8 @@
         <StackLayout Padding="30">
             <ListView ItemsSource="{Binding Contacts}"
                       SelectionMode="None"                           
-                      x:Name="items">
+                      x:Name="items"
+                      ItemTapped="Item_clicked">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Name}"
