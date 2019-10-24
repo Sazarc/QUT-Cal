@@ -17,9 +17,19 @@
             <Picker Title="Choose a unit"
                     ItemsSource="{Binding Subjects, Source={StaticResource SubjectViewModel}}"
                     ItemDisplayBinding="{Binding Unit}"
-                    SelectedIndexChanged="Picker_OnSelectedIndexChanged"/>
+                    SelectedIndexChanged="UnitPicker_OnSelectedIndexChanged"/>
             <Label FontSize="20" Text="Type of class:" />
-            <Entry Placeholder="Eg. Lecture or Practical" Text="{Binding Class.ClassType}"/>
+            <Picker SelectedIndexChanged="TypePicker_OnSelectedIndexChanged"
+                    Title="Choose a class type">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                      <x:String>Lecture</x:String>
+                      <x:String>Practical</x:String>
+                      <x:String>Tutorial</x:String>
+                      <x:String>Workshop</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             <Label FontSize="20" Text="Location:" />
             <Entry Placeholder="Eg. A123" Text="{Binding Class.Location}"/>
             <Label FontSize="20" Text="Class Date:" />

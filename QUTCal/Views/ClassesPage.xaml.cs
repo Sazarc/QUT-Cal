@@ -22,7 +22,7 @@ namespace QUTCal.Views
         {
             Class selectedClass = (Class)e.Item;
             await DisplayAlert(selectedClass.Detail, selectedClass.Location + "\n" + selectedClass.DateAndTime.ToLongDateString()
-                 + "\n" + selectedClass.DateAndTime.ToLongTimeString(), "OK");
+                 + "\n" + selectedClass.DateAndTime.ToLongTimeString(), "OK");  
         }
     }
 }

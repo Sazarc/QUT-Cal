@@ -31,7 +31,7 @@ namespace QUTCal.Views
             await Navigation.PopAsync();
         }
 
-        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        private void UnitPicker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             var picker = (Picker) sender;
             var selectedIndex = picker.SelectedIndex;
@@ -39,6 +39,16 @@ namespace QUTCal.Views
             if (selectedIndex == -1) return;
             var picked = (Subject) picker.ItemsSource[selectedIndex];
             Class.UnitCode = picked.Code;
+        }
+
+        private void TypePicker_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            var selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex == -1) return;
+            string picked = (string) picker.ItemsSource[selectedIndex];
+            Class.ClassType = picked;
         }
     }
 }
