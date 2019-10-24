@@ -17,7 +17,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell Text="{Binding Code}"
-                                  Detail="{Binding Unit}">
+                                  Detail="{Binding Text}">
                             <TextCell.ContextActions>
                                 <MenuItem Command="{Binding Path=BindingContext.DeleteCommand,Source={x:Reference Name=items}}"
                                           CommandParameter="{Binding .}"
