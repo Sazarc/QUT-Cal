@@ -34,15 +34,17 @@
             <Entry Placeholder="Eg. A123" Text="{Binding Class.Location}"/>
             <Label FontSize="20" Text="Class Date:" />
             <DatePicker MinimumDate="{x:Static sys:DateTime.Now}" 
-                        Date="{Binding Class.DateAndTime}" />
+                        Date="{Binding Class.DateAndTime}"/>
             <TimePicker Time="{Binding Time}" />
 
             <!--Weekly end content-->
-            <Label IsVisible="false" FontSize="20" Text="Weekly class: " />
-            <Switch IsVisible="false" IsToggled="false" />
-            <Label IsVisible="false" FontSize="20"
+            <Label FontSize="20" Text="Weekly class: " />
+            <Switch IsToggled="{Binding Repeat, Source={StaticResource ClassViewModel}}" />
+            <Label IsVisible="{Binding Repeat, Source={StaticResource ClassViewModel}}" FontSize="20"
                    Text="Weekly end Date: " />
-            <DatePicker IsVisible="false" /> <TimePicker IsVisible="false" />
+            <DatePicker IsVisible="{Binding Repeat, Source={StaticResource ClassViewModel}}"
+                        MinimumDate="{x:Static sys:DateTime.Now}"
+                        Date="{Binding endDate}"/>
         </StackLayout>
         
     </ContentPage.Content>

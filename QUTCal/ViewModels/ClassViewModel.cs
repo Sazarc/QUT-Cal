@@ -15,6 +15,7 @@ namespace QUTCal.ViewModels
     public class ClassViewModel : INotifyPropertyChanged
     {
         private readonly DatabaseService _databaseService;
+        private bool repeat;
 
         public ICommand DeleteCommand { protected set; get; }
 
@@ -27,15 +28,53 @@ namespace QUTCal.ViewModels
             DeleteCommand = new Command<Class>(delete);
         }
 
-        public async void add(Class _class)
+        public void add(Class _class, DateTime endDate)
         {
             // Perform the save operation on the database,
             // and update the model with the newly created ID.
-            _class.Id = await _databaseService.SaveClass(_class);
+            _class.Id = _databaseService.SaveClass(_class).Result;
 
             Classes.Add(_class);
+
+            // Perform repeating class
+            if (repeat)
+            {
+                while (true)
+                {
+                    if(_class.DateAndTime.AddDays(7).Date <= endDate.Date)
+                    {
+                        _class.DateAndTime = _class.DateAndTime.AddDays(7);
+
+                        _class.Id = _databaseService.SaveClass(_class).Result;
+
+                        Classes.Add(_class);
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
             OnPropertyChanged("Classes");
         }
+
+        public bool Repeat
+        {
+            get
+            {
+                return repeat;
+            }
+            set
+            {
+                if (repeat != value)
+                {
+                    repeat = value;
+                    RaisePropertyChanged("Repeat");
+                }
+            }
+        }
+
 
         // Keep the observable collection up to date.
         public ObservableCollection<Class> ClassesInDate(DateTime date)
@@ -105,6 +144,13 @@ namespace QUTCal.ViewModels
                 return;
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        private void RaisePropertyChanged(string property)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
         }
         #endregion
     }

@@ -11,12 +11,14 @@ namespace QUTCal.Views
     {
         public Class Class { get; set; }
         public TimeSpan Time { get; set; }
+        public DateTime endDate { get; set; }
 
         public AddClass()
         {
             InitializeComponent();
             Time = new TimeSpan();
             Class = new Class();
+            endDate = new DateTime();
 
             BindingContext = this;
         }
@@ -27,7 +29,8 @@ namespace QUTCal.Views
             Class.DateAndTime = Class.DateAndTime.Add(Time);
             Debug.WriteLine(Class.DateAndTime);
             ClassViewModel viewModel = (ClassViewModel) Application.Current.Resources["ClassViewModel"];
-            viewModel.add(Class);
+            Debug.WriteLine(endDate);
+            viewModel.add(Class, endDate);
             await Navigation.PopAsync();
         }
 
