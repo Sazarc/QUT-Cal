@@ -26,9 +26,16 @@ namespace QUTCal.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            SubjectViewModel viewModel = (SubjectViewModel)Application.Current.Resources["SubjectViewModel"];
-            viewModel.add(Subject);
-            await Navigation.PopAsync();
+            if (Subject.Code.Length == 0 || Subject.Text.Length == 0)
+            {
+                await DisplayAlert("Oops!", "Please fill in every field!", "OK");
+            }
+            else
+            {
+                SubjectViewModel viewModel = (SubjectViewModel)Application.Current.Resources["SubjectViewModel"];
+                viewModel.add(Subject);
+                await Navigation.PopAsync();
+            }
         }
     }
 }

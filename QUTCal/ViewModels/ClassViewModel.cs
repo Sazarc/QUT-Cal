@@ -9,6 +9,7 @@ using QUTCal.Models;
 using QUTCal.Services;
 using QUTCal.Views;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace QUTCal.ViewModels
 {
@@ -26,6 +27,17 @@ namespace QUTCal.ViewModels
             LoadClasses();
             
             DeleteCommand = new Command<Class>(delete);
+        }
+
+        public async Task<bool> add(Class _class)
+        {
+            // Perform the save operation on the database,
+            // and update the model with the newly created ID.
+            _class.Id = await _databaseService.SaveClass(_class);
+            Classes.Add(_class);
+
+            OnPropertyChanged("Classes");
+            return true;
         }
 
         public void add(Class _class, DateTime endDate)

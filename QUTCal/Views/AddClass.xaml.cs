@@ -17,8 +17,13 @@ namespace QUTCal.Views
         {
             InitializeComponent();
             Time = new TimeSpan();
-            Class = new Class();
-            Class.DateAndTime = DateTime.Now.Date;
+            Class = new Class
+            {
+                DateAndTime = DateTime.Now.Date,
+                Location = "",
+                UnitCode = "",
+                ClassType = ""
+            };
             endDate = new DateTime();
 
             BindingContext = this;
@@ -26,13 +31,38 @@ namespace QUTCal.Views
 
         private async void CreateClass_OnClick(object sender, EventArgs e)
         {
-            Debug.WriteLine(Class.DateAndTime);
-            Class.DateAndTime = Class.DateAndTime.Add(Time);
-            Debug.WriteLine(Class.DateAndTime);
-            ClassViewModel viewModel = (ClassViewModel) Application.Current.Resources["ClassViewModel"];
-            Debug.WriteLine(endDate);
-            viewModel.add(Class, endDate);
-            await Navigation.PopAsync();
+            Debug.WriteLine(Class.ClassType);
+            Debug.WriteLine(Class.UnitCode);
+            Debug.WriteLine(Class.Location);
+            if (Class.ClassType.Length == 0 || Class.UnitCode.Length == 0 || Class.Location.Length == 0)
+            {
+                await DisplayAlert("Oops!", "Please fill in every field!", "OK");
+            }
+            else
+            {
+                Class.DateAndTime = Class.DateAndTime.Add(Time);
+
+                ClassViewModel viewModel = (ClassViewModel)Application.Current.Resources["ClassViewModel"];
+                viewModel.add(Class, endDate);
+
+                if (viewModel.Repeat)
+                {
+                    while (true)
+                    {
+                        if (Class.DateAndTime.AddDays(7).Date <= endDate.Date)
+                        {
+                            Class.DateAndTime = Class.DateAndTime.AddDays(7);
+                            await viewModel.add(Class);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+
+                await Navigation.PopAsync();
+            }
         }
 
         private void UnitPicker_OnSelectedIndexChanged(object sender, EventArgs e)
